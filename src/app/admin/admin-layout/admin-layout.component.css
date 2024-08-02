@@ -13,6 +13,10 @@ mat-sidenav{
   border-radius: 0%;
 }
 
+mat-sidenav, mat-sidenav-content{
+  transition: all 300ms ease-in-out;
+}
+
 
 .content{
   padding: 24px;

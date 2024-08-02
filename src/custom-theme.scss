@@ -9,6 +9,17 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
+html,
+body {
+  height: 100%;
+}
+body{
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  --primary-color: #3f51b5;
+  --secondary-color: #b1dafc;
+}
+
 // Define the theme object.
 $cafe-system-dashboard-theme: mat.define-theme((
   color: (
@@ -17,7 +28,7 @@ $cafe-system-dashboard-theme: mat.define-theme((
     tertiary: mat.$azure-palette,
   ),
   typography: (
-    brand-family: 'Poppins',
+    brand-family: 'Roboto',
     bold-weight: 700
   ),
   density: (
