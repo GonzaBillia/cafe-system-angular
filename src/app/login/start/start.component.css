@@ -1,0 +1,38 @@
+.main-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  max-width: 100vw;
+}
+
+.logo-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+}
+
+.login-sections{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-right: 20rem;
+  width: 100%;
+  height: 80%;
+}
+
+.footer{
+  height: 10%
+}
+
+.form-container{
+  border-bottom-right-radius: 35px;
+  border-bottom-left-radius: 35px;
+  border: 1px solid black;
+  width: 30rem;
+  height: 30rem;
+  background-color: white;
+}
