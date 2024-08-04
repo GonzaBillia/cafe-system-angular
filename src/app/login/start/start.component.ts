@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
+import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 
 @Component({
   selector: 'app-start',
@@ -20,5 +21,11 @@ export class StartComponent {
     const dialogConfig = new MatDialogConfig()
     dialogConfig.width = "600px"
     this.dialog.open(SignupComponent, dialogConfig)
+  }
+
+  forgotAction(){
+    const dialogConfig = new MatDialogConfig()
+    dialogConfig.width = "600px"
+    this.dialog.open(ForgotPasswordComponent, dialogConfig)
   }
 }

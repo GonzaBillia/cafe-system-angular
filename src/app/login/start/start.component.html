@@ -9,12 +9,14 @@
           <h2 class="title-center">Get Started</h2>
         </mat-toolbar-row>
       </mat-toolbar>
-      <div class="d-flex-column">
-        <button mat-flat-button color="primary" (click)="signupAction()">SignUp</button>
+      <div class="d-flex-column" style="padding: 5px;">
+        <button mat-flat-button color="primary" (click)="signupAction()">Sign Up</button>
         <p>Or</p>
-        <button mat-flat-button color="seconday">Login</button>
+        <button mat-raised-button color="primary">Sign In</button>
+        <div style="padding: 5px;">
+          <p>Forgot Password? <a class="link" (click)="forgotAction()">Click Here</a></p>
+        </div>
       </div>
-      
     </div>
   </div>
   <div class="footer">Here goes a Footer</div>
