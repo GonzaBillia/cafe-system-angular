@@ -51,6 +51,7 @@ export class SignupComponent implements OnInit {
       this.responseMessage = response?.message
       this.snackbar.openSnackbar(this.responseMessage, "")
       this.router.navigate(['/'])
+      this.dialogRef.close()
     }, (error) => {
       this.ngxService.stop()
       if(error.error?.message) {

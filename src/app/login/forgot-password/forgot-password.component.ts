@@ -47,6 +47,7 @@ export class ForgotPasswordComponent implements OnInit{
       this.responseMessage = response?.message
       this.dialogRef.close()
       this.snackbar.openSnackbar(this.responseMessage, "")
+      this.dialogRef.close()
     }, (error) => {
       this.ngxService.stop()
       if(error.error?.message) {

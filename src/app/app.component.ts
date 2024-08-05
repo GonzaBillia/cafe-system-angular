@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgxUiLoaderModule, NgxUiLoaderConfig, PB_DIRECTION, SPINNER } from "ngx-ui-loader"

@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "stop-linux": "killall -9 node",
     "serve:ssr:cafe-system-dashboard": "node dist/cafe-system-dashboard/server/server.mjs"
   },
   "private": true,
@@ -24,6 +25,7 @@
     "@angular/router": "^18.1.0",
     "@angular/ssr": "^18.1.2",
     "express": "^4.18.2",
+    "jwt-decode": "^4.0.0",
     "ngx-ui-loader": "^13.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
