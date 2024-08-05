@@ -1,1 +1,35 @@
-<p>dashboard works!</p>
+<body>
+  <mat-card>
+    <b><h1>Dashboard</h1></b>
+  </mat-card>
+  <br>
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <div class="container">
+          <h2 class="title">Total Category:</h2>
+          <h1 class="title">{{data?.payload.categoryCount}}</h1>
+          <p><button class="button" [routerLink]="['/dashboard/category']">View Categories</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <div class="container">
+          <h2 class="title">Total Products:</h2>
+          <h1 class="title">{{data?.payload.productCount}}</h1>
+          <p><button class="button" [routerLink]="['/dashboard/product']">View Products</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <div class="container">
+          <h2 class="title">Total Bills:</h2>
+          <h1 class="title">{{data?.payload.billCount}}</h1>
+          <p><button class="button" [routerLink]="['/dashboard/bill']">View Bills</button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

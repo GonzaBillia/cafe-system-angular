@@ -37,8 +37,8 @@ export class CustomSidenavComponent {
     },
     {
       icon: 'list_alt',
-      label: 'Orders',
-      route: 'order'
+      label: 'Categories',
+      route: 'category'
     },
     {
       icon: 'summarize',
