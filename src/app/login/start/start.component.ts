@@ -9,6 +9,9 @@ import { HttpClient } from '@angular/common/http';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 import { SigninComponent } from '../signin/signin.component';
 import { UserService } from '../../services/user.service';
+import { PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { BrowserStorageService } from '../../services/browser-storage.service';
 
 @Component({
   selector: 'app-start',
@@ -18,19 +21,21 @@ import { UserService } from '../../services/user.service';
   styleUrl: './start.component.css'
 })
 export class StartComponent implements OnInit {
-  constructor(private dialog:MatDialog,
+  constructor(
+    private dialog:MatDialog,
     private router:Router,
-    private userService:UserService
+    private userService:UserService,
+    private storage:BrowserStorageService
   ){}
 
   ngOnInit(): void {
-    if(localStorage.getItem('token') != null){
-      this.userService.checkToken().subscribe((response:any) => {
-        this.router.navigate(['/dashboard/home'])
-      }, (error:any) => {
-        console.log(error)
-      })
-    }
+      if(this.storage.get('token') != null){
+        this.userService.checkToken().subscribe((response:any) => {
+          this.router.navigate(['/dashboard/home'])
+        }, (error:any) => {
+          console.log(error)
+        })
+      }
   }
   signupAction(){
     const dialogConfig = new MatDialogConfig()

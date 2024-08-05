@@ -7,9 +7,5 @@ import { RouteGuardService } from '../services/route-guard.service';
 export const LOGIN_ROUTES: Routes = [
   {
     path: '', component: StartComponent,
-    canActivate: [RouteGuardService],
-    data: {
-      expectedRole: ['admin' || 'user']
-    }
   }
 ]

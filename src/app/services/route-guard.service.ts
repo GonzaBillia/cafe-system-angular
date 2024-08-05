@@ -1,36 +1,42 @@
-import { Inject, Injectable, OnInit, PLATFORM_ID } from '@angular/core';
+import { afterRender, Inject, Injectable, OnInit, PLATFORM_ID } from '@angular/core';
 import { AuthService } from './auth.service';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { SnackbarService } from './snackbar.service';
 import  { jwtDecode }  from 'jwt-decode';
 import { Constants } from '../globals/constants';
+import { isPlatformBrowser } from '@angular/common';
+import { BrowserStorageService } from './browser-storage.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class RouteGuardService { 
+export class RouteGuardService{ 
 
-  constructor(@Inject(PLATFORM_ID) platformId: Object,
+  constructor(
     public auth:AuthService,
     public router:Router,
     private snackbar:SnackbarService,
-  ) {  }
+    private storage: BrowserStorageService
+  ) {
+
+  }
 
 
   canActivate(router:ActivatedRouteSnapshot):boolean{
 
-    let expectedRoleArray = router.data
-    expectedRoleArray = expectedRoleArray["expectedRole"]
+    const expectedRoleArrayData = router.data
+    let expectedRoleArray = expectedRoleArrayData["expectedRole"]
 
-    const token:any = localStorage.getItem('token')
+    const token:any = this.storage.get('token')
     let tokenPayload:any
 
     try{
       tokenPayload = jwtDecode(token)
+      
     } catch (error) {
       this.router.navigate(['/'])
-      localStorage.clear()
+      this.storage.clear()
     }
 
     let checkRole = false
@@ -50,7 +56,7 @@ export class RouteGuardService {
       return false
     } else {
       this.router.navigate(['/'])
-      localStorage.clear()
+      this.storage.clear()
       return false
     }
   }

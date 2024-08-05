@@ -12,6 +12,7 @@ import { UserService } from '../../services/user.service';
 import { SnackbarService } from '../../services/snackbar.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Constants } from '../../globals/constants';
+import { BrowserStorageService } from '../../services/browser-storage.service';
 
 @Component({
   selector: 'app-signin',
@@ -30,7 +31,8 @@ export class SigninComponent implements OnInit {
     private userService:UserService,
     private snackbar:SnackbarService,
     private dialogRef:MatDialogRef<SigninComponent>,
-    private ngxService:NgxUiLoaderService
+    private ngxService:NgxUiLoaderService,
+    private storage:BrowserStorageService
   ){}
 
   ngOnInit(): void {
@@ -51,7 +53,7 @@ export class SigninComponent implements OnInit {
       this.ngxService.stop();
       this.responseMessage = response?.message
       this.snackbar.openSnackbar(this.responseMessage, "close")
-      localStorage.setItem('token', response.token)
+      this.storage.set('token', response.token)
       this.router.navigate(['/dashboard/home'])
       this.dialogRef.close()
     }, (error) => {
