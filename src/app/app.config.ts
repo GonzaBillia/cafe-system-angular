@@ -7,7 +7,8 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserStorageService } from './services/browser-storage.service';
 import { authInterceptor } from './shared/interceptors/auth.interceptor';
+import { MenuItems } from './globals/menu-items';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(), provideAnimationsAsync(), provideHttpClient(withFetch(), withInterceptors([authInterceptor])), BrowserStorageService],
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(), provideAnimationsAsync(), provideHttpClient(withFetch(), withInterceptors([authInterceptor])), BrowserStorageService, MenuItems],
 };

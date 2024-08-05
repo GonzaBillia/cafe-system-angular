@@ -1,7 +1,18 @@
-<mat-toolbar class="mat-elevation-z3">
+<mat-toolbar class="mat-elevation-z3 toolbar">
   <button mat-icon-button (click)="collapsed.set(!collapsed())">
     <mat-icon>menu</mat-icon>
   </button>
+  <button [matMenuTriggerFor]="profile" mat-icon-button>
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #profile="matMenu">
+    <button mat-menu-item (click)="changePassword()">
+      <mat-icon>password</mat-icon> Change Password
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon> Sign Out
+    </button>
+  </mat-menu>
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav opened mode="side" [style.width]="sidenavWidth()">
