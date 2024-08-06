@@ -1,0 +1,75 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayout="row">
+    <h1 class="title-center">{{dialogAction}} Product</h1>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
+  <form class="form" [formGroup]="productForm" (ngSubmit)="handleSubmit()">
+    <div fxFlex fxLayout="column">
+      <div fxLayout="row wrap">
+        <mat-form-field appearance="fill" fxFlex class="extend">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" placeholder="Enter Title">
+          <mat-error *ngIf="productForm.controls.title.touched && productForm.controls.title.invalid">
+            <span *ngIf="productForm.controls.title.errors?.required">Title is required</span>
+            <span *ngIf="productForm.controls.title.errors?.invalid">Title is invalid</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row wrap" class="between">
+        <mat-form-field appearance="fill" fxFlex>
+          <mat-label>Price</mat-label>
+          <input matInput formControlName="price" placeholder="Enter Price">
+          <mat-error *ngIf="productForm.controls.price.touched && productForm.controls.price.invalid">
+            <span *ngIf="productForm.controls.price.errors?.required">Price is required</span>
+            <span *ngIf="productForm.controls.price.errors?.invalid">Price is invalid</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex>
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="category_id">
+            <mat-option *ngFor="let category of categories" [value]="category.id">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row wrap" class="between">
+        <mat-form-field appearance="fill" fxFlex>
+          <mat-label>Stock</mat-label>
+          <input matInput formControlName="stock" placeholder="Enter Stock">
+          <mat-error *ngIf="productForm.controls.stock.touched && productForm.controls.stock.invalid">
+            <span *ngIf="productForm.controls.stock.errors?.required">Stock is required</span>
+            <span *ngIf="productForm.controls.stock.errors?.invalid">Stock is invalid</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex>
+          <mat-label>Code</mat-label>
+          <input matInput formControlName="code" placeholder="Enter Code">
+          <mat-error *ngIf="productForm.controls.code.touched && productForm.controls.code.invalid">
+            <span *ngIf="productForm.controls.code.errors?.required">Code is required</span>
+            <span *ngIf="productForm.controls.code.errors?.invalid">Code is invalid</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      
+      <div fxLayout="row wrap">
+        <mat-form-field appearance="fill" fxFlex class="extend">
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="description" placeholder="Enter Description">
+          <mat-error *ngIf="productForm.controls.description.touched && productForm.controls.description.invalid">
+            <span *ngIf="productForm.controls.description.errors?.required">Description is required</span>
+            <span *ngIf="productForm.controls.description.errors?.invalid">Description is invalid</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-flat-button color="primary" (click)="handleSubmit()" [disabled]="!(productForm.valid && productForm.dirty)">{{action}}</button>
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

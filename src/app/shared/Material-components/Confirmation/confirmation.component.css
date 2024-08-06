@@ -1,7 +1,18 @@
 h5{
   font-size: 19px;
+  padding: 10px;
+  margin-bottom: 0;
 }
-
+mat-icon{
+  color: red;
+  width: 60px;
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 mat-dialog-content{
   padding: 10px;
 }

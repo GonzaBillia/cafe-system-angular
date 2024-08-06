@@ -1,0 +1,30 @@
+.title-center{
+  flex: 1 1 auto;
+  text-align: center;
+  color: white;
+}
+
+mat-toolbar{
+  width: auto;
+  margin-bottom: 10px;
+  background-color: rgb(46, 46, 248);
+}
+
+mat-form-field{
+  width: auto;
+  padding: 10px;
+}
+
+.extend{
+  width: 95%;
+}
+
+.between{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+mat-dialog-actions{
+  margin-bottom: 20px;
+}

@@ -34,7 +34,7 @@ const MENUITEMS:MenuItem[] = [
   },
   {
     icon: 'person',
-    label: 'Profile',
+    label: 'Users',
     route: 'user',
     role: ''
   }

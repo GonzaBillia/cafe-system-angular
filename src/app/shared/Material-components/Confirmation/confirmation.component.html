@@ -1,7 +1,10 @@
-<mat-dialog-content class="mat-typography">
-  <h5>Are You sure want to {{details.message}}</h5>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-raised-button color="primary" (click)="handleChangeAction()">YES</button>
-  <button mat-raised-button mat-dialog-close>NO</button>
-</mat-dialog-actions>
+<div fxFlex>
+  <mat-dialog-content class="mat-typography flex-row">
+    <h5>Are You sure want to {{details.message}}</h5>
+    <mat-icon>warning</mat-icon>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" (click)="handleChangeAction()">YES</button>
+    <button mat-raised-button mat-dialog-close>NO</button>
+  </mat-dialog-actions>
+</div>
