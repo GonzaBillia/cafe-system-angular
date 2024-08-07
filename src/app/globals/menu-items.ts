@@ -33,6 +33,12 @@ const MENUITEMS:MenuItem[] = [
     role: ''
   },
   {
+    icon: 'grading',
+    label: 'Orders',
+    route: 'order',
+    role: ''
+  },
+  {
     icon: 'person',
     label: 'Users',
     route: 'user',

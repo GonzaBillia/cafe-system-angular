@@ -14,6 +14,14 @@ export class ProductService {
     return this.httpClient.get(this.url+'/product/get')
   }
 
+  getByCategory(id:any){
+    return this.httpClient.get(this.url+'/product/getByCategory/'+ id)
+  }
+
+  getById(id:any){
+    return this.httpClient.get(this.url+'/product/getById/'+ id)
+  }
+
   add(data:any){
     return this.httpClient.post(this.url+'/product/add',data,{
       headers: new HttpHeaders().set('Content-Type', 'application/json')

@@ -1,6 +1,8 @@
 export class Constants{
   //Message
   public static genericError:string = "Something went wrong. Please try again later."
+  public static productExistError:string = "Product already exist."
+  public static productAdded:string = "Product added successfully."
 
   public static unauthorized:string = "You are no authorized to access this page."
   //Regex

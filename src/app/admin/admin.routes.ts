@@ -5,6 +5,7 @@ import { ProductsComponent } from "./products/products.component";
 import { CategoriesComponent } from "./categories/categories.component";
 import { BillsComponent } from "./bills/bills.component";
 import { RouteGuardService } from "../services/route-guard.service";
+import { OrdersComponent } from "./orders/orders.component";
 
 export const ADMIN_ROUTES: Routes = [
   {
@@ -24,6 +25,7 @@ export const ADMIN_ROUTES: Routes = [
         }
       },
       { path: 'bill', component: BillsComponent },
+      { path: 'order', component: OrdersComponent },
 
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '*', redirectTo: 'home', pathMatch: 'full' }
