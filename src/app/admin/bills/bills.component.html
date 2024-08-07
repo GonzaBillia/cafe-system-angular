@@ -1,1 +1,55 @@
-<p>bills works!</p>
+<mat-card class="card-header">
+  <b><h1 class="title">View Bills</h1></b>
+</mat-card>
+<hr>
+<mat-card class="card-filter">
+  <mat-form-field appearance="fill">
+    <mat-label>Filter</mat-label>
+    <input type="text" matInput (keyup)="applyFilter($event)" #input>
+  </mat-form-field>
+</mat-card>
+<hr>
+<div class="responsive-table">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{element.email}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="contact_number">
+      <th mat-header-cell *matHeaderCellDef>Contact Number</th>
+      <td mat-cell *matCellDef="let element">{{element.contact_number}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="payment_method">
+      <th mat-header-cell *matHeaderCellDef>Payment Method</th>
+      <td mat-cell *matCellDef="let element">{{element.payment_method}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef>Total</th>
+      <td mat-cell *matCellDef="let element">{{element.total}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="view">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element" class="action-link">
+        <button mat-icon-button class="btn-color" matTooltip="View" (click)="handleViewAction(element)"><mat-icon>visibility</mat-icon></button>
+        <button mat-icon-button class="btn-color" matTooltip="Download Bill" (click)="downloadReportAction(element)"><mat-icon>download</mat-icon></button>
+        <button mat-icon-button class="btn-color" matTooltip="Delete" (click)="handleDeleteAction(element)"><mat-icon>delete</mat-icon></button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
