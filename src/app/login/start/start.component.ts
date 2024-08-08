@@ -12,6 +12,8 @@ import { UserService } from '../../services/user.service';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { BrowserStorageService } from '../../services/browser-storage.service';
+import { waitForAsync } from '@angular/core/testing';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-start',
@@ -29,6 +31,7 @@ export class StartComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
+      // timeout(1000)
       if(this.storage.get('token') != null){
         this.userService.checkToken().subscribe((response:any) => {
           this.router.navigate(['/dashboard/home'])

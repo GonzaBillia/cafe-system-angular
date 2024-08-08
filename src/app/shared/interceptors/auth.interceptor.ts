@@ -1,16 +1,17 @@
 import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { BrowserStorageService } from '../../services/browser-storage.service';
 import { inject } from '@angular/core';
-import { catchError, throwError } from 'rxjs';
+import { catchError, throwError, timeout } from 'rxjs';
 import { Router } from '@angular/router';
 
 export const authInterceptor: HttpInterceptorFn = (req, next,) => {
   const storage = inject(BrowserStorageService);
-  const token = storage.get('token');
+  let token = storage.get('token');
+
   const router = inject(Router)
   if (token) {
     req = req.clone({
-      headers: req.headers.set('Authorization', `Bearer ${token}`),
+      headers: req.headers.set('authorization', `Bearer ${token}`),
     });
   }
   

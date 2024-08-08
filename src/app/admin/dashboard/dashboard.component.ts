@@ -21,6 +21,7 @@ export class DashboardComponent {
     private ngxService:NgxUiLoaderService,
     private snackbar:SnackbarService
   ){
+    
     this.ngxService.start()
     this.dashboardData()
   }

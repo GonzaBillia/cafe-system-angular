@@ -37,6 +37,9 @@ export class RouteGuardService{
     } catch (error) {
       this.router.navigate(['/'])
       this.storage.clear()
+      console.log("no puede hacer decode de token", tokenPayload);
+      return false
+      
     }
 
     let checkRole = false
